@@ -17,7 +17,7 @@ def extract_packet_info(packet):
         if (packet[IP].dst == destination_ip and
             udp_source_port == source_port and
             udp_destination_port == destination_port):
-            print("Source IP Address:", source_ip)
+            print("Miner IP:", source_ip)
             #print("UDP Source Port:", udp_source_port)
             #print("UDP Destination Port:", udp_destination_port)
 
