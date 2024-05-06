@@ -4,6 +4,7 @@ from struct import pack
 def send_arp_packet():
     src_mac = b'\x00\x11\x22\x33\x44\x55'  # Source MAC address
     dst_ip = "192.168.1.1"  # Destination IP address
+    src_ip = "192.168.1.69"
 
     # Craft the ARP request packet
     arp_packet = b'\xff\xff\xff\xff\xff\xff'  # Destination MAC address (broadcast)

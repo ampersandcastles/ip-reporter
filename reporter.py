@@ -27,4 +27,5 @@ def listen_for_packets():
 
 if __name__ == "__main__":
     # Start listening for packets
+    print("Listening...")
     listen_for_packets()
