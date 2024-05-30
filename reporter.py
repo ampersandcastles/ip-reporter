@@ -1,4 +1,4 @@
-from scapy.all import IP, UDP, sniff
+from scapy.all import IP, UDP, Ether, sniff
 
 # Define the destination IP address and UDP ports to filter
 destination_ip = '255.255.255.255'  # Destination IP address
@@ -17,9 +17,13 @@ def extract_packet_info(packet):
         if (packet[IP].dst == destination_ip and
             udp_source_port == source_port and
             udp_destination_port == destination_port):
-            print("Miner IP:", source_ip)
-            #print("UDP Source Port:", udp_source_port)
-            #print("UDP Destination Port:", udp_destination_port)
+            # Extract and print the MAC address from the Ethernet layer
+            source_mac = packet[Ether].src
+            print(f"Miner IP: {source_ip}")
+            print(f"Source MAC Address: {source_mac}")
+            #print(f"UDP Source Port: {udp_source_port}")
+            #print(f"UDP Destination Port: {udp_destination_port}")
+            print("-" * 40)
 
 def listen_for_packets():
     # Sniff network traffic and invoke the callback function for each packet
