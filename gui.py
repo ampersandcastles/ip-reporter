@@ -1,11 +1,17 @@
 import tkinter as tk
 from tkinter import ttk, filedialog
 from scapy.all import IP, UDP, Ether, sniff
+import webbrowser
 
 # Define the destination IP address and UDP ports to filter
 destination_ip = '255.255.255.255'  # Destination IP address
 source_port = 14236  # Source port
 destination_port = 14235  # Destination port
+
+# Username and password for the miners
+# Adjust accordingly for appropriate credentials
+username = "root"
+password = "root"
 
 # Function to extract packet information and display it in the tree view
 def extract_packet_info(packet):
@@ -58,6 +64,13 @@ def export_data():
                 file.write(f"IP Address: {row[0]}, MAC Address: {row[1]}\n")
         status_label.config(text=f"Data exported to {file_path}")
 
+# Function to open the IP address in the default web browser with credentials
+def open_in_browser(event):
+    item = tree.selection()[0]
+    ip_address = tree.item(item, "values")[0]
+    url = f"http://{username}:{password}@{ip_address}"
+    webbrowser.open(url)
+
 # Create the main window
 root = tk.Tk()
 root.title("IP Reporter")
@@ -72,6 +85,9 @@ tree = ttk.Treeview(frame, columns=columns, show="headings")
 tree.heading("IP Address", text="IP Address")
 tree.heading("MAC Address", text="MAC Address")
 tree.pack(fill=tk.BOTH, expand=True)
+
+# Bind double click to open in browser
+tree.bind("<Double-1>", open_in_browser)
 
 # Create a start button
 start_button = tk.Button(root, text="Start", command=toggle_listening)
