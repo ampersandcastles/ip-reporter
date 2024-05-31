@@ -43,13 +43,15 @@ IP Reporter is a Python-based tool for network administrators to monitor and cap
 
 2. **Run the Script**:
 
-   ```python3 reporter.py
+   ```sh
+   python3 reporter.py
 
    ```
 
    or
 
-   ```python3 gui.py
+   ```sh
+   python3 gui.py
 
    ```
 
