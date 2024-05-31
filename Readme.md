@@ -1,6 +1,6 @@
 # IP Reporter
 
-IP Reporter is a Python-based tool for network administrators to monitor and capture IP and MAC addresses of network devices. It provides a simple graphical user interface (GUI) to display and export the captured data. The tool is useful for managing network devices, especially in environments like mining farms where multiple devices need to be tracked.
+IP Reporter is a Python-based tool for network administrators to monitor and capture IP and MAC addresses of network devices. It provides a simple graphical user interface (GUI) to display and export the captured data. The tool is useful for managing network devices, especially in environments like mining farms where multiple devices need to be tracked. Currently this only works on Antminer machines as it's what I have access to.
 
 ## Features
 
@@ -43,8 +43,14 @@ IP Reporter is a Python-based tool for network administrators to monitor and cap
 
 2. **Run the Script**:
 
-   ```sh
-   python3 reporter.py
+   ```python3 reporter.py
+
+   ```
+
+   or
+
+   ```python3 gui.py
+
    ```
 
 3. **GUI Interface**:
