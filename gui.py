@@ -55,7 +55,7 @@ def toggle_listening():
 def export_data():
     # Get the file path from the user
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", 
-                                             filetypes=[("Text files", "*.txt"), 
+                                            filetypes=[("Text files", "*.txt"), 
                                                         ("All files", "*.*")])
     if file_path:
         with open(file_path, "w") as file:
