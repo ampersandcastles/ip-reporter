@@ -37,7 +37,7 @@ IP Reporter is a Python-based tool for network administrators to monitor and cap
 1. **Clone the Repository**:
 
    ```sh
-   git clone https://github.com/yourusername/ip-reporter.git
+   git clone https://github.com/ampersandcastles/ip-reporter.git
    cd ip-reporter
    ```
 
@@ -97,3 +97,4 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
 
 - The developers and maintainers of [Scapy](https://scapy.net/).
 - The Python community for providing excellent libraries and support.
+- Honestly, ChatGPT.
