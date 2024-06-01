@@ -77,13 +77,19 @@ root.title("IP Reporter")
 
 # Create a frame for the tree view
 frame = tk.Frame(root)
-frame.pack(padx=10, pady=10)
+frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
 # Create a tree view with columns for IP and MAC
 columns = ("IP Address", "MAC Address")
 tree = ttk.Treeview(frame, columns=columns, show="headings")
 tree.heading("IP Address", text="IP Address")
 tree.heading("MAC Address", text="MAC Address")
+
+# Add a vertical scrollbar to the tree view
+scrollbar = ttk.Scrollbar(frame, orient="vertical", command=tree.yview)
+tree.configure(yscrollcommand=scrollbar.set)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
 tree.pack(fill=tk.BOTH, expand=True)
 
 # Bind double click to open in browser
