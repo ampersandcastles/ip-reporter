@@ -1,0 +1,7 @@
+setup.py
+build/
+dist/
+IP_Reporter.egg-info/
+ipreporter.egg-info/
+MANIFEST.in
+reporter.spec
