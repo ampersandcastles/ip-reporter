@@ -28,6 +28,7 @@ class IPReporter(QMainWindow):
         
         self.tree = QTreeWidget()
         self.tree.setHeaderLabels(["IP Address", "MAC Address"])
+        self.tree.setColumnWidth(1, 400)
         self.layout.addWidget(self.tree)
         
         self.tree.itemDoubleClicked.connect(self.open_in_browser)
