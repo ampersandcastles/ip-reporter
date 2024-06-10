@@ -47,6 +47,9 @@ class IPReporter(QMainWindow):
         
         self.listening = False
 
+        # Set to keep track of unique IP addresses
+        self.unique_ips = set()
+
     def extract_packet_info(self, packet):
         # Check if the packet is an IP packet with UDP layer
         if IP in packet and UDP in packet:
@@ -61,8 +64,13 @@ class IPReporter(QMainWindow):
                 udp_destination_port == destination_port):
                 # Extract the MAC address from the Ethernet layer
                 source_mac = packet[Ether].src
-                # Display the information in the tree view
-                self.tree.addTopLevelItem(QTreeWidgetItem([source_ip, source_mac]))
+
+                # Check if the IP address is already in the set
+                if source_ip not in self.unique_ips:
+                    # Add the IP address to the set
+                    self.unique_ips.add(source_ip)
+                    # Display the information in the tree view
+                    self.tree.addTopLevelItem(QTreeWidgetItem([source_ip, source_mac]))
 
     def listen_for_packets(self):
         sniff(prn=self.extract_packet_info, filter="udp and ip", store=0)
