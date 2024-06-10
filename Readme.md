@@ -55,7 +55,12 @@ IP Reporter is a Python-based tool for network administrators to monitor and cap
 
    ```
 
-3. **GUI Interface**:
+   or
+   ```sh
+   python3 qt.py
+   ```
+
+4. **GUI Interface**:
    - Click "Start" to begin packet sniffing.
    - Captured IP and MAC addresses will be displayed in the table.
    - Double-click on an IP address to open it in your default web browser.
